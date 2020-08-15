@@ -19,4 +19,9 @@ function compile() {
     };
 }
 
+function save() {
+    alert("Todo!");
+}
+
+document.getElementById("save").addEventListener("click", save);
 compile();
