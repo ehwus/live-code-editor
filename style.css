@@ -21,3 +21,7 @@ iframe {
     width: 100%;
     height: 35em;
 }
+
+#save {
+    margin: 10px;
+}
