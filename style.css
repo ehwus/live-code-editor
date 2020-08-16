@@ -24,4 +24,10 @@ iframe {
 
 #save {
     margin: 10px;
+    color: white;
+    background-color: black;
+    text-align: center;
+    display: inline-block;
+    border: 0px;
+    padding: 5px;
 }
