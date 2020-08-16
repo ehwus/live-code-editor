@@ -4,7 +4,7 @@ function compile() {
     var js = document.getElementById("js");
     var code = document.getElementById("code").contentWindow.document;
 
-    document.body.onkeyup = function() {
+    document.body.onkeyup = function () {
         code.open();
         code.writeln(
             html.value +
@@ -20,8 +20,14 @@ function compile() {
 }
 
 function save() {
-    var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
-    saveAs(blob, "hello world.txt");
+    var zip = new JSZip();
+    zip.file("index.html", html.value);
+    zip.file("style.css", css.value);
+    zip.file("app.js", js.value);
+    zip.generateAsync({ type: "blob" })
+        .then(function (content) {
+            saveAs(content, "MySite.zip");
+        });
 }
 
 document.getElementById("save").addEventListener("click", save);
